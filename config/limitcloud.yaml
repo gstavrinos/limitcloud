@@ -1,0 +1,4 @@
+
+input_topic: "zed/point_cloud/cloud_registered"
+robot_width: 0.55
+tolerance: 0.05

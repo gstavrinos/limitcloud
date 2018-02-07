@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no" ?>
+<launch>
+    <node pkg="limitcloud" type="limitcloud" respawn="false" name="limitcloud" output="screen">
+        <rosparam file="$(find limitcloud)/config/limitcloud.yaml" command="load" />
+    </node>
+</launch>
