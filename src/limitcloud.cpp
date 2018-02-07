@@ -10,11 +10,11 @@ void cloud_callback (const sensor_msgs::PointCloud2ConstPtr& msg){
     sensor_msgs::PointCloud2 output;
     output.header.stamp = ros::Time::now();
     output.header.frame_id = msg->header.frame_id;
-    output.height = msg->height; // 376
+    output.height = msg->height;
     output.width = msg->width;
     output.fields = msg->fields;
     output.is_bigendian = msg->is_bigendian;
-    output.point_step = msg->point_step; // 32
+    output.point_step = msg->point_step;
     output.row_step = output.width * output.point_step;
     output.is_dense = msg->is_dense;
     output.data = msg->data;
@@ -39,8 +39,8 @@ int main (int argc, char** argv){
 
     std::string in_topic;
     nh.param("limitcloud/input_topic", in_topic, std::string("zed/point_cloud/cloud_registered"));
-    nh.param("robot_width", robot_width, 0.55f);
-    nh.param("tolerance", tolerance, 0.05f);
+    nh.param("limitcloud/robot_width", robot_width, 0.55f);
+    nh.param("limitcloud/tolerance", tolerance, 0.05f);
     ros::Subscriber sub = nh.subscribe (in_topic, 1, cloud_callback);
 
     pub = nh.advertise<sensor_msgs::PointCloud2> (in_topic + "/limitcloud", 1);
