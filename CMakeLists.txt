@@ -14,3 +14,6 @@ include_directories(
 
 add_executable(limitcloud src/limitcloud.cpp)
 target_link_libraries(limitcloud ${catkin_LIBRARIES})
+
+add_executable(limitcloud_rgb src/limitcloud_rgb.cpp)
+target_link_libraries(limitcloud_rgb ${catkin_LIBRARIES})
