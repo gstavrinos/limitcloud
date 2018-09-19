@@ -1,8 +1,8 @@
 
 input_topic: "/camera/depth_registered/points"
-r: 73 #213 #253
-g: 10 #177 #67
-b: 12 #153 #11
+r: 73
+g: 10
+b: 12
 r_tolerance: 15
 g_tolerance: 15
 b_tolerance: 15

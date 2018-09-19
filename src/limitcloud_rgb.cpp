@@ -28,14 +28,10 @@ void cloud_callback (const sensor_msgs::PointCloud2ConstPtr& msg){
     sensor_msgs::PointCloud2Iterator<float> iter_x(output, "x"), iter_y(output, "y"), iter_z(output, "z");
     for (sensor_msgs::PointCloud2Iterator<uint8_t> iter_rgb(output, "rgb");
         iter_rgb != iter_rgb.end(); ++iter_rgb, ++iter_x, ++iter_y, ++iter_z){
-        //ROS_WARN("%f %f %f, [%d %d %d]", *iter_x, *iter_y, *iter_z, iter_rgb[0], iter_rgb[1], iter_rgb[2]);
         if(!(approx(iter_rgb[2], red, r_tolerance) and approx(iter_rgb[1], green, g_tolerance) and approx(iter_rgb[0], blue, b_tolerance))){
             *iter_x = NAN;
             *iter_y = NAN;
             *iter_z = NAN;
-            // iter_rgb[0] = 0;
-            // iter_rgb[1] = 150;
-            // iter_rgb[2] = 0;
         }
     }
 
